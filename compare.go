@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+// Compare is compare version string.
 func Compare(past string, next string) (Result, error) {
 	pastSegments, err := Split(past)
 
@@ -24,5 +25,19 @@ func Compare(past string, next string) (Result, error) {
 		return UnKnown, errors.New(message)
 	}
 
-	return LessThan, err
+	for i := 0; i < numSegments; i++ {
+		if pastSegments[i] == nextSegments[i] {
+			continue
+		}
+
+		if pastSegments[i] > nextSegments[i] {
+			return GreaterThan, err
+		}
+
+		if pastSegments[i] < nextSegments[i] {
+			return LessThan, err
+		}
+	}
+
+	return Equals, err
 }

@@ -58,6 +58,18 @@ func TestSplitWithAfterString(t *testing.T) {
 	}
 }
 
+func TestSplitWithZeroLast(t *testing.T) {
+	segment, err := Split("1.1.0")
+
+	if err != nil {
+		t.Error("Split got error.")
+	}
+
+	if segment[2] != 0 {
+		t.Errorf("segment 0 want (%d)", segment[0])
+	}
+}
+
 func TestSplitFail(t *testing.T) {
 	_, err := Split("version test")
 

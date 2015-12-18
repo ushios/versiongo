@@ -30,7 +30,7 @@ func Split(version string) ([]int, error) {
 		}
 	}
 
-	if tempSegment != 0 {
+	if added {
 		segments = append(segments, tempSegment)
 	}
 
