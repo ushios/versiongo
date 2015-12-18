@@ -22,4 +22,14 @@ func TestCompare(t *testing.T) {
 	if result != GreaterThan {
 		t.Errorf("result want (%s)", result)
 	}
+
+	result, err = Compare("10.0.0", "v10.0.0")
+
+	if err != nil {
+		t.Errorf("result got err (%s)", err)
+	}
+
+	if result != Equals {
+		t.Errorf("result want (%s)", result)
+	}
 }
