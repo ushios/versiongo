@@ -1,6 +1,10 @@
 VersionGo
 =========
+
 Compare versions
+
+[![Build Status](https://travis-ci.org/ushios/versiongo.svg?branch=master)](https://travis-ci.org/ushios/versiongo)
+
 
 GettingStarted
 ===============
