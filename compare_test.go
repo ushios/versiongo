@@ -43,3 +43,25 @@ func TestCompare(t *testing.T) {
 		t.Errorf("result want (%s)", result)
 	}
 }
+
+func TestCompareWithError(t *testing.T) {
+	result, err := Compare("1.0.0", "1.0")
+
+	if err == nil {
+		t.Errorf("result want error but nil")
+	}
+
+	if result != UnKnown {
+		t.Errorf("result want (%s)", result)
+	}
+
+	result, err = Compare("aaa", "1.0")
+
+	if err == nil {
+		t.Errorf("result want error but nil")
+	}
+
+	if result != UnKnown {
+		t.Errorf("result want (%s)", result)
+	}
+}

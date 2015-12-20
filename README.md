@@ -54,3 +54,15 @@ fmt.Println(result2) // GreaterThan
 result3, err3 := Compare("1.0", "1.0")
 fmt.Println(result3) // Equals
 ```
+
+### Errors
+
+```go
+// Compare 3 segments and 2 segments.
+result, err := Compare("1.0.0", "1.0")
+fmt.Println(result) // UnKnown
+
+// Version number not found.
+reuslt, err := Compare("one", "1.0.0")
+fmt.Println(result) // UnKnown
+```
