@@ -32,4 +32,14 @@ func TestCompare(t *testing.T) {
 	if result != Equals {
 		t.Errorf("result want (%s)", result)
 	}
+
+	result, err = Compare("0.9", "1.0")
+
+	if err != nil {
+		t.Errorf("result got err (%s)", err)
+	}
+
+	if result != LessThan {
+		t.Errorf("result want (%s)", result)
+	}
 }
