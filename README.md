@@ -24,8 +24,8 @@ Documentation
 Table of Contents
 ==================
 
-- [Split version string to int list](#Split)
-- [Compare version strings](#Compare)
+- [Split version string to int list](#split)
+- [Compare version strings](#compare)
 
 Split
 -----
