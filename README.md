@@ -1,10 +1,10 @@
 VersionGo
 =========
 
-Compare versions
-
 [![Build Status](https://travis-ci.org/ushios/versiongo.svg?branch=master)](https://travis-ci.org/ushios/versiongo)
 [![Coverage Status](https://coveralls.io/repos/ushios/versiongo/badge.svg?branch=master&service=github)](https://coveralls.io/github/ushios/versiongo?branch=master)
+
+Compare versions
 
 GettingStarted
 ===============
