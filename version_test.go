@@ -32,3 +32,11 @@ func TestVersoinCompare(t *testing.T) {
 		t.Errorf("%s and %s result %s", version, compVer, res)
 	}
 }
+
+func TestString(t *testing.T) {
+	compVer, _ := NewVersion("10.0.01", FuzzySplit)
+	compVer.Separator = "."
+	if compVer.String() != "10.0.1" {
+		t.Errorf("compVer.String() expected (%s) but (%s)", "10.0.1", compVer.String())
+	}
+}

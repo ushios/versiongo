@@ -1,6 +1,9 @@
 package versiongo
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 // Version have version info.
 type Version struct {
@@ -43,4 +46,8 @@ func (v Version) IntSegments() ([]int, error) {
 // Compare using Compare.
 func (v Version) Compare(ver Version) (Result, error) {
 	return Compare(v, ver)
+}
+
+func (v Version) String() string {
+	return strings.Join(v.Segments, v.Separator)
 }
