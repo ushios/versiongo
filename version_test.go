@@ -22,3 +22,13 @@ func TestNewVersion(t *testing.T) {
 		t.Errorf("segments 0 want (%s)", segments[3])
 	}
 }
+
+func TestVersoinCompare(t *testing.T) {
+	version, _ := NewVersion("10.0.0", FuzzySplit)
+
+	compVer, _ := NewVersion("10.0.01", FuzzySplit)
+
+	if res, _ := version.Compare(compVer); res != LessThan {
+		t.Errorf("%s and %s result %s", version, compVer, res)
+	}
+}

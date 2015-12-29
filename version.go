@@ -39,3 +39,8 @@ func (v Version) IntSegments() ([]int, error) {
 
 	return segments, err
 }
+
+// Compare using Compare.
+func (v Version) Compare(ver Version) (Result, error) {
+	return Compare(v, ver)
+}
