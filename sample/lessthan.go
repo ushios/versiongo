@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	current := "1.0.0"
-	next := "1.0.1"
+	current, _ := versiongo.NewVersion("1.0.0", versiongo.FuzzySplit)
+	next, _ := versiongo.NewVersion("1.0.1", versiongo.FuzzySplit)
 
 	result, err := versiongo.Compare(current, next)
 

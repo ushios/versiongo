@@ -3,7 +3,9 @@ package versiongo
 import "testing"
 
 func TestCompare(t *testing.T) {
-	result, err := Compare("1.0.2", "1.1.0")
+	past, _ := NewVersion("1.0.2", FuzzySplit)
+	next, _ := NewVersion("1.1.0", FuzzySplit)
+	result, err := Compare(past, next)
 
 	if err != nil {
 		t.Errorf("result got err (%s)", err)
@@ -13,7 +15,9 @@ func TestCompare(t *testing.T) {
 		t.Errorf("result want (%s)", result)
 	}
 
-	result, err = Compare("20.0.0", "v10.0.0")
+	past, _ = NewVersion("20.0.0", FuzzySplit)
+	next, _ = NewVersion("v10.0.0", FuzzySplit)
+	result, err = Compare(past, next)
 
 	if err != nil {
 		t.Errorf("result got err (%s)", err)
@@ -23,7 +27,9 @@ func TestCompare(t *testing.T) {
 		t.Errorf("result want (%s)", result)
 	}
 
-	result, err = Compare("10.0.0", "v10.0.0")
+	past, _ = NewVersion("10.0.0", FuzzySplit)
+	next, _ = NewVersion("v10.0.0", FuzzySplit)
+	result, err = Compare(past, next)
 
 	if err != nil {
 		t.Errorf("result got err (%s)", err)
@@ -33,7 +39,9 @@ func TestCompare(t *testing.T) {
 		t.Errorf("result want (%s)", result)
 	}
 
-	result, err = Compare("0.9", "1.0")
+	past, _ = NewVersion("0.9", FuzzySplit)
+	next, _ = NewVersion("1.0", FuzzySplit)
+	result, err = Compare(past, next)
 
 	if err != nil {
 		t.Errorf("result got err (%s)", err)
@@ -45,7 +53,9 @@ func TestCompare(t *testing.T) {
 }
 
 func TestCompareWithError(t *testing.T) {
-	result, err := Compare("1.0.0", "1.0")
+	past, _ := NewVersion("1.0.0", FuzzySplit)
+	next, _ := NewVersion("1.0", FuzzySplit)
+	result, err := Compare(past, next)
 
 	if err == nil {
 		t.Errorf("result want error but nil")
@@ -55,7 +65,9 @@ func TestCompareWithError(t *testing.T) {
 		t.Errorf("result want (%s)", result)
 	}
 
-	result, err = Compare("aaa", "1.0")
+	past, _ = NewVersion("aaa", FuzzySplit)
+	next, _ = NewVersion("1.0.0", FuzzySplit)
+	result, err = Compare(past, next)
 
 	if err == nil {
 		t.Errorf("result want error but nil")

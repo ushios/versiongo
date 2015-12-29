@@ -5,14 +5,14 @@ import (
 	"strconv"
 )
 
-// Split version string to int slice.
-func Split(version string) ([]int, error) {
-	var segments []int
+// FuzzySplit version string to int slice.
+func FuzzySplit(version string, separator []string) ([]string, error) {
+	var segments []string
 	var tempSegment int
 	var err error
 	var added bool
 
-	segments = []int{}
+	segments = []string{}
 	tempSegment = 0
 	added = false
 
@@ -23,7 +23,7 @@ func Split(version string) ([]int, error) {
 			added = true
 		} else {
 			if added {
-				segments = append(segments, tempSegment)
+				segments = append(segments, strconv.Itoa(tempSegment))
 				tempSegment = 0
 				added = false
 			}
@@ -31,7 +31,7 @@ func Split(version string) ([]int, error) {
 	}
 
 	if added {
-		segments = append(segments, tempSegment)
+		segments = append(segments, strconv.Itoa(tempSegment))
 	}
 
 	if len(segments) < 1 {

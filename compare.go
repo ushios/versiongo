@@ -6,14 +6,14 @@ import (
 )
 
 // Compare is compare version string.
-func Compare(past string, next string) (Result, error) {
-	pastSegments, err := Split(past)
+func Compare(past Version, next Version) (Result, error) {
+	pastSegments, err := past.IntSegments()
 
 	if err != nil {
 		return UnKnown, err
 	}
 
-	nextSegments, err := Split(next)
+	nextSegments, err := next.IntSegments()
 
 	if err != nil {
 		return UnKnown, err
