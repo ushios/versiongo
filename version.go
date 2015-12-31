@@ -24,6 +24,7 @@ func NewVersion(
 	}
 
 	version.Segments = segments
+	version.Separator = "."
 	return version, err
 }
 
