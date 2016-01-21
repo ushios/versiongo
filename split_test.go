@@ -22,6 +22,14 @@ func TestSplit(t *testing.T) {
 	}
 }
 
+func TestSplitEmpty(t *testing.T) {
+	_, err := FuzzySplit("", []string{})
+
+	if err == nil {
+		t.Error("Must be error when split empty string.")
+	}
+}
+
 func TestFuzzySplitWithString(t *testing.T) {
 	segment, err := FuzzySplit("v12", []string{})
 
