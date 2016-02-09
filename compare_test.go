@@ -59,7 +59,7 @@ func TestCompare(t *testing.T) {
 		t.Errorf("result got err (%s)", err)
 	}
 
-	if result != LessThan {
+	if result != Equals {
 		t.Errorf("result want (%s)", result)
 	}
 }
