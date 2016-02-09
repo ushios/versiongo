@@ -50,6 +50,18 @@ func TestCompare(t *testing.T) {
 	if result != LessThan {
 		t.Errorf("result want (%s)", result)
 	}
+
+	past, _ = NewVersion("1.19", FuzzySplit)
+	next, _ = NewVersion("1.19", FuzzySplit)
+	result, err = Compare(past, next)
+
+	if err != nil {
+		t.Errorf("result got err (%s)", err)
+	}
+
+	if result != LessThan {
+		t.Errorf("result want (%s)", result)
+	}
 }
 
 func TestCompareWithError(t *testing.T) {

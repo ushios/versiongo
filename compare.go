@@ -1,9 +1,6 @@
 package versiongo
 
-import (
-	"errors"
-	"fmt"
-)
+import "fmt"
 
 // Compare is compare version string.
 func Compare(past Version, next Version) (Result, error) {
@@ -21,8 +18,7 @@ func Compare(past Version, next Version) (Result, error) {
 
 	numSegments := len(pastSegments)
 	if numSegments != len(nextSegments) {
-		message := fmt.Sprintf("Num of segments not matched between (%s) and (%s)", pastSegments, nextSegments)
-		return UnKnown, errors.New(message)
+		return UnKnown, fmt.Errorf("Num of segments not matched between (%s) and (%s)", pastSegments, nextSegments)
 	}
 
 	for i := 0; i < numSegments; i++ {
