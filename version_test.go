@@ -39,4 +39,10 @@ func TestString(t *testing.T) {
 	if compVer.String() != "10.0.1" {
 		t.Errorf("compVer.String() expected (%s) but (%s)", "10.0.1", compVer.String())
 	}
+
+	compVer, _ = NewVersion("2.4", FuzzySplit)
+	compVer.Separator = "."
+	if compVer.String() != "2.4" {
+		t.Errorf("compVer.String() expected (%s) but (%s)", "2.4", compVer.String())
+	}
 }
